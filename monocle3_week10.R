@@ -62,8 +62,7 @@ Idents(abc)<- "CellType"
 p11<- RidgePlot(abc, features = c("monocle3_pseudotime"),  idents = "EN_upper", group.by = "orig.ident", cols = c('blue', 'red')
                , combine = F)
 p12<- RidgePlot(abc, features = c("monocle3_pseudotime"),  idents = "EN_deep", group.by = "orig.ident", cols = c('blue', 'red'))
-plot_grid(p10+p12)
-plot_grid(p9+p11)
+
 
 Idents(cde)<- "CellType"
 p9<- RidgePlot(cde, features = c("monocle3_pseudotime"),  idents = "EN_upper", group.by = "orig.ident", cols = c('blue', 'red')
