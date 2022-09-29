@@ -93,7 +93,7 @@ DimPlot(organoid.combined.cca.sct, reduction = 'umap', label = F, repel = T, spl
 
 DimPlot(organoid.combined.cca.sct_1, reduction = 'umap', label = T, repel = T)
 organoid.combined.cca.sct_1$orig.ident <- factor(organoid.combined.cca.sct_1$orig.ident, levels = c("Chap WT/WT.w21", "Chap WT/I135L.w21", "Chap KO/KO.w21", "Apex WT/WT.w21", "Apex WT/I135L.w21", "Apex KO/KO.w21", "brain_2017"))
-DimPlot(organoid.combined.cca.sct_1, reduction = 'umap', label = T, repel = T)
+DimPlot(organoid.combined.cca.sct_1, reduction = 'umap', label = T, repel = T, split.by = "orig.ident")
 
 Idents(organoid.combined.cca.sct_1) <- "seurat_clusters"
 
