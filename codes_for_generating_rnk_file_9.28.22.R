@@ -68,7 +68,7 @@ myDGEList.filtered.norm <- calcNormFactors(myDGEList.filtered, method = "TMM")
 log2.cpm.filtered.norm <- cpm(myDGEList.filtered.norm, log=TRUE)
 log2.cpm.filtered.norm.df <- as_tibble(log2.cpm.filtered.norm, rownames = "geneID")
 colnames(log2.cpm.filtered.norm.df) <- c("geneID", sampleLabels)
-write_tsv(log2.cpm.filtered.norm.df, "log2.cpm.filtered.norm.df_PTEN_P5.tsv")
+write_tsv(log2.cpm.filtered.norm.df, "log2.cpm.filtered.norm.df_PTEN_P3.tsv")
 # Set up your design matrix ----
 group <- factor(targets$group)
 design <- model.matrix(~0 + group)
