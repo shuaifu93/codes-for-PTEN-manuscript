@@ -150,11 +150,12 @@ new_ident_1 <- setNames(c("EN_upper", #0
 ),
 levels(organoid.combined.cca.sct_1_rename))
 organoid.combined.cca.sct_1_rename <- RenameIdents(organoid.combined.cca.sct_1_rename, new_ident_1)
+organoid.combined.cca.sct_1_rename$CellType <- Idents(organoid.combined.cca.sct_1_rename)
+
 Idents(organoid.combined.cca.sct_1_rename) <- "orig.ident"
 DimPlot(organoid.combined.cca.sct_1_rename, reduction = "umap", split.by = "orig.ident", ncol=3, label = F, cols = c("gray","gray", "gray", "gray", "gray","gray","gray")) + NoLegend()
 
 DimPlot(organoid.combined.cca.sct_1_rename, reduction = 'umap', label = T, repel = T, label.size  = 4.5)
 
-organoid.combined.cca.sct_1_rename$CellType <- Idents(organoid.combined.cca.sct_1_rename)
 
 saveRDS(organoid.combined.cca.sct_1_rename, "w10_brain_2017_sct_cca_200_30_rename_8.6.22.rds")
