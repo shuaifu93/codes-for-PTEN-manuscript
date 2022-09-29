@@ -88,7 +88,6 @@ organoid.combined.cca.sct <- RunUMAP(organoid.combined.cca.sct, reduction = "pca
 
 organoid.combined.cca.sct <- FindNeighbors(organoid.combined.cca.sct, dims = 1:30)
 organoid.combined.cca.sct_1 <- FindClusters(organoid.combined.cca.sct, resolution = 1.5)
-organoid.combined.cca.sct_2 <- FindClusters(organoid.combined.cca.sct, resolution = 1.5)
 
 DimPlot(organoid.combined.cca.sct, reduction = 'umap', label = F, repel = T, split.by = "orig.ident", ncol = 3) 
 DimPlot(organoid.combined.cca.sct, reduction = 'umap', label = F, repel = T, split.by = "orig.ident", ncol =3) + NoLegend()
