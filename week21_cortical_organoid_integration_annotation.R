@@ -1,10 +1,9 @@
 library(Seurat)
 library(ggplot2)
 library(sctransform)
-library(presto)
 require(data.table)
 library(dplyr)
-library(scCustomize)
+library(tidyverse)
 
 # Loading Cellranger processed data
 chap.w21.data <- Read10X_h5('chap_week21_filtered_feature_bc_matrix.h5')
