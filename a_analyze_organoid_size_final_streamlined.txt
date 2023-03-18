@@ -1,0 +1,99 @@
+var dir1 = "";
+var t2 = "";
+var dir2 = "";
+var dir3 = "";
+var dir4 = ""; 
+var t1 = "";
+var t3 = "";
+var t4 = "";
+var t5 = "";
+var t6 = "";
+var t7 = "";
+var t8 = "";
+
+
+macro "Run macro [1]"
+{
+	
+open("");
+t4 = File.name;
+t2 = File.nameWithoutExtension;
+
+	dir2 = getDirectory("choose parent directory for saving");
+	dir3 = File.makeDirectory(dir2+t2);
+	dir1 = dir2+t2+ "\\";//This is for pc
+	//dir1 = dir2+t2+ "//"; // This is for mac
+	dir5 = File.makeDirectory(dir2+"results_as_text_"+t2);
+	dir4 = dir2+"results_as_text_"+t2+"\\";
+
+selectWindow(t4);
+
+//run("Enhance Contrast...", "saturated=1");
+//setTool("rectangle");
+//makeRectangle(603, 354, 930, 807);
+//setTool("rectangle");
+//waitForUser("Move area to crop");
+//run("Crop");
+
+saveAs("jpg", dir1+"Green");
+
+close();
+
+open(dir1 +"Green.jpg");
+
+
+	run("Set Measurements...", "area mean standard min centroid integrated redirect=None decimal=3");
+
+	
+	setTool("brush");
+	waitForUser("Make cell roi");
+	roiManager("Add");
+	//run("Convert to Mask");
+
+
+
+saveAs("jpg", dir1+"Green_thres");
+	
+run("Select None");
+
+selectWindow("Green_thres.jpg");
+
+	roiManager("Save", dir1+"ROI_tbr2_pre_cells.zip");
+
+	open(dir1+"Green.jpg");
+	
+
+	setOption("Show All",true);
+
+	selectWindow("Green.jpg");
+	
+	setOption("Show All",false);
+	
+	setOption("Show All",true);
+	
+	
+	//waitForUser("Are you ready to proceed with the macro?");
+	
+	roiManager("Save", dir1+"ROI_tbr2_cells.zip");
+	run("Clear Results");
+
+	run("Close");
+	open(dir1+"Green.jpg");
+run("16-bit");
+	setOption("Show All",false);
+	setOption("Show All",true);
+	roiManager("Deselect");
+	roiManager("Measure");
+	saveAs("Measurements", dir4+t2+"_cells.txt"); 
+	roiManager("Delete");
+	run("Clear Results");
+
+
+run("Close All");
+
+}
+
+
+
+
+
